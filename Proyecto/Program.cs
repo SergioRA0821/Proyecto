@@ -42,12 +42,22 @@ namespace Proyecto
                     case Menu.Actualizar:
                         Console.WriteLine("Dame matricula para actualizar: ");
                         int matr = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Dame nuevo nombre: ");
+                        string Nom = Console.ReadLine();
+                        Console.WriteLine("Dame nueva edad: ");
+                        int e = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Dame nueva matricula: ");
+                        int nMat = Convert.ToInt32(Console.ReadLine());
 
+                        acciones.Actualizar(matr, Nom, e, nMat);
                         break;
                     case Menu.Eliminar:
                         Console.WriteLine("Ingresa matricula a elmimnar: ");
                         int mat = Convert.ToInt32(Console.ReadLine());
                         acciones.Eliminar(mat);
+                        break;
+                    case Menu.Salir:
+                        Environment.Exit(1);
                         break;
                     default:
                         break;

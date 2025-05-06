@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,13 +17,23 @@ namespace Proyecto
             new Alumno("Sofia", 19, 112315)
         };
 
-        public void Actualizar(string nombre, int edad, int matricula)
+        public void Actualizar(int matriculaActual, string Nuevonombre, int Nuevaedad, int Nuevamatricula)
         {
-            var actualizar = listaalumnos.FirstOrDefault(x => x.Matricula == matricula);
+            var actualizar = listaalumnos.FirstOrDefault(x => x.Matricula == matriculaActual);
 
-            actualizar.Matricula = matricula;
-            actualizar.Edad = edad;
-            actualizar.Nombre = nombre;
+            if (actualizar != null)
+            {
+                actualizar.Nombre = Nuevonombre;
+                actualizar.Edad = Nuevaedad;
+                actualizar.Matricula = Nuevamatricula;
+                Console.WriteLine("Alumno actualizado correctamente");
+            }
+            else
+            {
+                Console.WriteLine("No se encontró esa matrícula...");
+            }
+
+
         }
 
         public void Agregar(string nombre, int edad, int matricula)
